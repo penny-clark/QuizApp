@@ -1,8 +1,27 @@
 <%- include('header') %>
 
+    <main>
 
+      <h3>Quiz title here</h3>
+      <p class="question">
+        <span>Q.</span> What material is Captain America's shield made of?
+      </p>
 
+      <form action="" method="POST" id="take-quiz-form"></form>
+        <div>
+          <input type="radio" name="take_quiz_options" value="Vibranium">
+          <label for="take_quiz_option1">Vibranium</label>
 
+          <input type="radio" name="take_quiz_options" value="Galvorn">
+          <label for="take_quiz_option2">Galvorn</label>
+        </div>
+
+        <div>
+          <button type="submit">Submit answer</button>
+        </div>
+      </form>
+
+    </main>
 
   </body>
 </html>
