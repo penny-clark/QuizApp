@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Take the quiz</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+
+    <main>
+      <!-- this info needs to be pulled in dynamically - will need to TBD the exact fields -->
+      <h3><%= quiz(title) %></h3>
+      <p class="question"><%= question(content) %></p>
+
+      <form class="form-inline" action="/*****TBD*****" method="POST" id="quiz">
+        <div class="new-quiz-form__field-wrapper">
+          <label for="new-quiz-form__title">Pick an answer</label>
+          <input type="radio" id="possiblea1" name="pickanswer" value="answer1">
+          <label for="answer1"><%= answer1 %></label><br>
+          <input type="radio" id="possiblea2" name="pickanswer" value="answer2">
+          <label for="answer2"><%= answer2 %>></label><br>
+        </div>
+
+    </main>
+  </body>
+</html>
