@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS attempts CASCADE;
 CREATE TABLE attempts (
   id SERIAL PRIMARY KEY,
-  quiztaker_name VARCHAR(255) NOT NULL DEFAULT ‘Anonymous’,
+  quiztaker_name VARCHAR(255) NOT NULL DEFAULT 'Anonymous',
   quiz_id INTEGER NOT NULL REFERENCES quizzes(id) ON DELETE CASCADE
 );

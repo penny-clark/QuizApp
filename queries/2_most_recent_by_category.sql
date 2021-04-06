@@ -2,8 +2,8 @@
 
 SELECT id, title
 FROM quizzes
-WHERE publicly_listed = 'true'
-AND catagory = 'history' --example
+WHERE publicly_listed = TRUE
+AND category = 'science' --example
 ORDER BY time_created
 LIMIT 10;
 

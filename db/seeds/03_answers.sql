@@ -1,23 +1,23 @@
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (1, 'Opatowiec, Poland', TRUE);
+INSERT INTO answers (question_id, answer_content, correct)
+VALUES (1, 'Opatowiec, Poland', 'true');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (1, 'Vaduz, Liechtenstein', FALSE);
+INSERT INTO answers (question_id, answer_content)
+VALUES (1, 'Vaduz, Liechtenstein');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (2, 'True', FALSE);
+INSERT INTO answers (question_id, answer_content)
+VALUES (2, 'True');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (2, 'False', TRUE);
+INSERT INTO answers (question_id, answer_content, correct)
+VALUES (2, 'False', 'true');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (3, '1 foot', FALSE);
+INSERT INTO answers (question_id, answer_content)
+VALUES (3, '1 foot');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (3, '2 foot', TRUE);
+INSERT INTO answers (question_id, answer_content, correct)
+VALUES (3, '2 foot', 'true');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (4, 'True', TRUE);
+INSERT INTO answers (question_id, answer_content, correct)
+VALUES (4, 'True', 'true');
 
-INSERT INTO questions (question_id, answer_content, correct)
-VALUES (4, 'False', FALSE);
+INSERT INTO answers (question_id, answer_content)
+VALUES (4, 'False');
