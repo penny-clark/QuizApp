@@ -94,11 +94,6 @@ a {
   -webkit-text-decoration-skip: objects; /* 2 */
 }
 
-/*Remove underline of a tag */
-a {
-  text-decoration: none;
-}
-
 /**
  * Remove the outline on focused links when they are also active or hovered
  * in all browsers (opinionated).

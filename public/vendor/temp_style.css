@@ -1,5 +1,10 @@
 *{margin: 0; padding: 0;}
 
+/*Remove underline of a tag */
+a {
+  text-decoration: none;
+}
+
 body {
   background-color: #EEE;
   display: flex;
@@ -24,7 +29,8 @@ nav {
   justify-content: center;
 }
 
-nav a.createBT {
+a.styleBT {
+  display: inline-flex;
   padding: .6em;
   background-color: #244751;
   font-size: 1.2em;
@@ -37,14 +43,27 @@ main {
   border: 1px solid red;
 }
 
-section.public_list {
+.public_list {
   padding-top: 1em;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-article.single_quiz {
-  width: 90%;
+.single_quiz {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 1em;
   background-color: #fff;
+  overflow: visible;
+}
+
+.single_quiz h3 {
+  font-size: 1.3em;
+  padding-bottom: .5em;
+}
+.single_quiz p {
+  padding: .5em 0;
 }
