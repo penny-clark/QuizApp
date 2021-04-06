@@ -1,4 +1,4 @@
--- Render homepage based on the search criterea provided altering the query request
+-- Render homepage based on category
 
 SELECT id, title
 FROM quizzes
