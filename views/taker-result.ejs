@@ -1,8 +1,35 @@
 <%- include('header') %>
+    <main>
 
+      <h2>Quiz taker's Result</h2>
+      <section class="myQuiz">
 
+        <h3 class="quiz_title">Quiz title</h3>
+        <span class="title_share_option private">private</span>
 
+        <!--display one div of correct & fail-->
+        <div class="correct">
+          <p>Correct answer!</p>
+          <a href="#" id="retakeBT" class="shareBT">Go to take more quizzes</a>
+        </div>
 
+        <div class="fail">
+          <p>Nope!</p>
+          <a href="#" id="retakeBT" class="shareBT">Retake quiz</a>
+        </div>
+
+        <div class="quiz_result">
+          <p>Total <span>quiz(attempt)</span> attempt</p>
+          <p><span>correct answer attempt / attempt * 100 </span>% of users answered correctly</p>
+        </div>
+      </section>
+
+      <!--THis link is the taker's result link-->
+      <div class="share">
+        <span>quiz take's result page URL</span> <a href="#" class="shareBT">Copy result link</a>
+      </div>
+
+    </main>
 
   </body>
 </html>

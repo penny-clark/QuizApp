@@ -160,3 +160,19 @@ h3.quiz_title {
 #view_quiz_display {
   display: none;
 }
+
+div.fail, div.correct {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+.quiz_result {
+  margin-top: 1em;
+}
+
+.myQuiz .quiz_result p {
+  padding: .5em;
+  text-align: center;
+}
