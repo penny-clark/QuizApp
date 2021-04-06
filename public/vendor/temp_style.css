@@ -100,11 +100,22 @@ textarea {
   padding: 1em;
 }
 
-/* creator's page */
+/* maker-quiz */
 
 .myQuiz p {
   padding: 1em;
   font-size: 1.2em;
+}
+
+h3.quiz_title {
+  display: inline-block;
+}
+
+.title_share_option {
+  font-size: .8em;
+  padding: .2em;
+  color: #fff;
+  background-color: #333;
 }
 
 .myQuiz ol {
@@ -146,14 +157,3 @@ textarea {
   text-align: center;
 }
 
-.resultBT {
-  display: block;
-  margin: .5em auto;
-  width: 60%;
-  padding: .5em;
-  background-color:#5cbf49;
-  font-size: 1em;
-  color: #fff;
-  border-radius: .5em;
-  text-align: center;
-}
