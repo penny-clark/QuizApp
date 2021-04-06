@@ -5,4 +5,3 @@ JOIN answers ON questions.id = question_id
 WHERE quizzes.id = 1
 ;
 
--- WILL NEED TO TEST THIS ONCE I GET THE TEMP DATA LOADED IN
