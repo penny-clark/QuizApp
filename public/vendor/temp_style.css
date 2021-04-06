@@ -47,6 +47,8 @@ main {
   border: 1px solid red;
 }
 
+/* index */
+
 .public_list {
   padding-top: 1em;
   display: flex;
@@ -96,4 +98,62 @@ textarea {
 
 #take-quiz-form {
   padding: 1em;
+}
+
+/* creator's page */
+
+.myQuiz p {
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+.myQuiz ol {
+  padding: 1em;
+  list-style: none;
+}
+
+.myQuiz li {
+  padding: .2em 0;
+}
+
+.myQuiz li.correct {
+  background-color: #cae8b3;
+}
+
+.share {
+  margin: .5em auto;
+  width: 70%;
+}
+
+.share span {
+  display: inline-block;
+  width: 60%;
+  font-size: 1em;
+  margin: 1em;
+  padding: .5em;
+  background-color: #fff;
+  color: #000;
+}
+
+.shareBT {
+  display: inline-block;
+  width: 30%;
+  padding: .5em;
+  background-color: #bf4984;
+  font-size: 1em;
+  color: #fff;
+  border-radius: .5em;
+  text-align: center;
+}
+
+.resultBT {
+  display: block;
+  margin: .5em auto;
+  width: 60%;
+  padding: .5em;
+  background-color:#5cbf49;
+  font-size: 1em;
+  color: #fff;
+  border-radius: .5em;
+  text-align: center;
 }
