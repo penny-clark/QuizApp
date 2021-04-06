@@ -8,20 +8,42 @@
         <span class="title_share_option private">private</span>
 
         <!--display one div of correct & fail-->
-        <div class="correct">
+        <div class="wrapBT">
           <p>Correct answer!</p>
           <a href="#" id="retakeBT" class="shareBT">Go to take more quizzes</a>
         </div>
 
-        <div class="fail">
+        <div class="wrapBT">
           <p>Nope!</p>
           <a href="#" id="retakeBT" class="shareBT">Retake quiz</a>
         </div>
 
-        <div class="quiz_result">
-          <p>Total <span>quiz(attempt)</span> attempt</p>
-          <p><span>correct answer attempt / attempt * 100 </span>% of users answered correctly</p>
+        <div class="wrapBT">
+          <a href="#" id="result_detail" class="shareBT">Dtails of quiz result</a>
         </div>
+
+        <div class="quiz_result">
+
+        <table class="result_table">
+          <tr>
+            <th>Taker</th>
+            <th>Answer</th>
+          </tr>
+          <tr>
+            <td>taker1</td>
+            <td>correct</td>
+          </tr>
+          <tr>
+            <td>taker1</td>
+            <td>failed</td>
+          </tr>
+        </table>
+
+
+          <p>Total <span>quiz(attempt)</span> attempt</p>
+          <p><span>correct answer attempt / total attempt * 100 </span>% of attemptation answered correctly.</p>
+        </div>
+
       </section>
 
       <!--THis link is the taker's result link-->
