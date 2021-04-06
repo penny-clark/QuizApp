@@ -10,7 +10,7 @@ a {
 }
 
 body {
-  background-color: #EEE;
+  background-color: #dbedff;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -20,13 +20,17 @@ body {
 }
 
 body h1 {
-  color: #244751;
+  color: #fff;
   text-align: center;
   font-family: 'Lobster',sans-serif;
 }
 
 header {
-  height: 120;
+  width: 100%;
+  min-height: 130px;
+  padding-bottom: 1em;
+  margin-bottom: 1em;
+  background-color: #2176ff;
 }
 
 nav {
@@ -38,11 +42,11 @@ nav {
 
 a.styleBT {
   display: inline-flex;
-  padding: .6em;
-  background-color: #244751;
+  padding: .6em 1em;
+  background-color: #ffd670;
   font-size: 1.2em;
-  color: #fff;
-  border-radius: .6em;
+  color: #000;
+  border-radius: 1.2em;
 }
 
 main {
