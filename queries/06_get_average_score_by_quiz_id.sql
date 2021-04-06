@@ -1,11 +1,7 @@
-SELECT avg(SELECT answers.correct
-FROM answers
-JOIN attempts_answers on answers.id = answer_id
-JOIN attempts ON attempts.id = attempts_id
-WHERE attempts.quiz_id = 2 --replace with id in js)
-) as average_score,
-sum(attempts_answers.*) as total
-FROM attempts_answers
-JOIN attempts ON attempts.id = attempts_id
+SELECT attempts.quiz_id as quiz, sum(answers.correct) / sum(attempts_answers.*) as average
+FROM attempts
+JOIN attempts_answers ON attempts.id = attempt_id
+JOIN answers ON answers.id = answer_id
 WHERE attempts.quiz_id = 2 --replace with id in js
-GROUP BY attempts.id;
+GROUP BY attempts.quiz_id;
+--WORK IN PROGRESS
