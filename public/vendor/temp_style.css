@@ -68,9 +68,12 @@ h3 {
   font-size: 1.3em;
   padding-bottom: .5em;
 }
+
 .single_quiz p {
   padding: .5em 0;
 }
+
+/* form */
 
 .form-block-wrap label {
   display: block;
@@ -82,4 +85,15 @@ h3 {
 
 textarea {
   width: 90%;
+}
+
+/* take-quiz */
+
+.question {
+  padding: 1em;
+  font-size: 1.2em;
+}
+
+#take-quiz-form {
+  padding: 1em;
 }
