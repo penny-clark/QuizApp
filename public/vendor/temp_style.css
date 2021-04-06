@@ -157,3 +157,6 @@ h3.quiz_title {
   text-align: center;
 }
 
+#view_quiz_display {
+  display: none;
+}

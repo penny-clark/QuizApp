@@ -1,6 +1,39 @@
 <%- include('header') %>
-
     <main>
+
+      <h2>Quiz Creator's Result Page : Name</h2>
+      <section class="myQuiz">
+
+        <h3 class="quiz_title">Quiz title</h3>
+        <span class="title_share_option private">private</span>
+
+        <!--when you click this BT the #view_quiz div will appear-->
+        <div>
+          <a href="#" id="view_quiz" class="styleBT">Quiz Content</a>
+        </div>
+
+        <div id="view_quiz_display">
+          <p>quiz(question) What material is Captain America's shield made of?</p>
+          <ol>
+            <!--a class will be added on the correct answer-->
+            <li id="option1" class="correct">answer1</li>
+            <li id="option2">answer2</li>
+          </ol>
+        </div>
+
+
+
+        <div class="quiz_result">
+          <p>Total <span>quiz(attempt)</span> attempt</p>
+          <p><span>correct answer attempt / attempt * 100 </span>% of users answered correctly</p>
+        </div>
+      </section>
+
+      <!--THis link is the maker's result link-->
+      <div class="share">
+        <p>Keep this link to track the result of your quiz</p>
+        <span>quiz result page URL</span> <a href="#" class="shareBT">Copy result link</a>
+      </div>
 
 
     </main>
