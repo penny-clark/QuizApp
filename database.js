@@ -1,7 +1,7 @@
 //get most recent public quizzes for the homepage
 const getRecentQuizzes = function() {
   return pool.query(`
-  SELECT id, title
+  SELECT title, creator_name, id
   FROM quizzes
   WHERE publicly_listed = 'true'
   ORDER BY time_created DESC
