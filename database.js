@@ -1,7 +1,7 @@
 //get most recent public quizzes for the homepage
 const getRecentQuizzes = function() {
   return pool.query(`
-  SELECT id, title
+  SELECT title, creator_name, id
   FROM quizzes
   WHERE publicly_listed = 'true'
   ORDER BY time_created DESC
@@ -85,7 +85,7 @@ const getQuizTotalAverage = function(quiz_id) {
   })
 }
 
-//add a new quiz to the quizzes database
+//THESE FOUR FUNCTIONS ARE FOR ADDING A NEW QUIZ
 const addQuiz = function(newquiz) {
   return pool.query(`INSERT INTO quizzes (title, creator_name, publicly_listed, category)
   VALUES ($1, $2, $3, $4, $5) RETURNING *;`, [newquiz.title, newquiz.creatorname, newquiz.public, newquiz.category])
