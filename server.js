@@ -42,10 +42,10 @@ const takersRoutes = require("./routes/takers");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/",  homeRoutes(db));
+app.use("/", homeRoutes(db));
 app.use("/m", makersRoutes(db));
 app.use("/t", takersRoutes(db));
-// Note: mount other resources here, using the same pattern above
+// gNote: mount other resources here, using the same pattern above
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
