@@ -1,4 +1,4 @@
--- Render the home page
+-- Render the home page with most recent quizzes
 SELECT id, title
 FROM quizzes
 WHERE publicly_listed = 'true'
