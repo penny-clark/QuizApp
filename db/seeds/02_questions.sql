@@ -8,6 +8,6 @@ INSERT INTO questions (quiz_id, question_content)
 VALUES (3, 'How long is the longest bug?');
 
 INSERT INTO questions (quiz_id, question_content)
-VALUES (3, 'The fairyfly is the shortest bug on earth');
+VALUES (4, 'The fairyfly is the shortest bug on earth');
 
 
