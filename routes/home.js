@@ -3,33 +3,39 @@ const express = require("express");
 const home = express.Router();
 
 // Home page Routes
-const homeRoutes = db => {
+module.exports = db => {
   // Render the home page
   home.get("/", (req, res) => {
-    db.query(/*query file here*/)
-      .then((data) => {
-        res.render("index", data);
+    db.query("SELECT 1") //replace with query sql file for returning the latest quizes from the database
+      .then(data => {
+        console.log("This is data: ", data.rows);
+        const templateVars = {rows: data.rows};
+        res.render("index", templateVars);
       })
-      .catch((err) => {
+      .catch(err => {
         res.status(500).json({ error: err.message });
       });
-    return home;
   });
 
   // Stretch:
 
   // Search requests or to display specific categories ordered by the most recent submissions for those search requirements
   home.post("/", (req, res) => {
-    db.query(/*query file here*/)
-      .then((data) => {
+    const body = req.body; //takes in params from the body, search bar submition, and uses that to affect the query made by db.query
+    console.log("Body: ", body);
+    db.query("SELECT 1")
+      .then(data => {
         // Render homepage based on the search criterea provided altering the query request
-        res.render("index", data);
+        console.log("This is data: ", data.rows);
+        const templateVars = {rows: data.rows};
+        res.render("index", templateVars);
       })
-      .catch((err) => {
+      .catch(err => {
         res.status(500).json({ error: err.message });
       });
-    return home;
   });
-};
 
-module.exports = { homeRoutes };
+  // End of Stretch
+
+  return home;
+};
