@@ -176,9 +176,12 @@ div.wrapBT {
   margin-top: .5em;
 }
 
-.quiz_result {
+.taker_quiz_result {
   margin-top: 1em;
   display: none;
+}
+.maker_quiz_result {
+  margin-top: 1em;
 }
 
 .myQuiz .quiz_result p {
