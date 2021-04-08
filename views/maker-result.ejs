@@ -4,43 +4,38 @@
       <h2>Quiz Creator's Result Page : <%= quiz.creator_name %></h2>
       <section class="myQuiz">
 
-        <h3 class="quiz_title"><%= quiz.title %></h3>
+        <h3 class="quiz_title">Quiz title: <%= quiz.title %></h3>
 
-        <div>
-          <a href="#" id="view_quiz" class="shareBT">View quiz Content</a>
-        </div>
 
-        <div id="view_quiz_display">
-          <p><%= quiz.question %></p>
-          <ol>
-            <!-- a class will be added on the correct answer
-            <li id="option1" class="correct"><%= quiz.correctanswer %></li>
-            <li id="option2"><%= quiz.wronganswer %></li>
-          </ol>
-        </div>-->
-<!---
+
         <div class="maker_quiz_result">
           <table class="result_table">
             <tr>
               <th>Taker</th>
               <th>Answer</th>
             </tr>
-            <% for (const item of quiz) { %>
+
             <tr>
               <td><%= quiz.taker_name %></td>
-              <td><%= quiz.score %></td>
+
+              <% if (quiz.score === '0') { %>
+              <td> Failed </td>
+              <% } %>
+
+              <% if (quiz.score === '1') { %>
+                <td> Correct answer </td>
+                <% } %>
             </tr>
-            <% } %>
 
           </table>
-        -->
 
-          <p>Total <span><%= quiz.total_attempts %></span> attempt</p>
+
+          <p class="total_result">Total <span><%= quiz.total_attempts %></span> attempts</p>
         <!--  <p><span>correct answer attempt / total attempt * 100 </span>% of attemptation answered correctly.</p> -->
         </div>
       <!--To sharee maker's result link-->
       <div class="share">
-        <span>quiz result page URL</span> <a href="#" class="shareBT">Share this result</a>
+        <span>http://localhost:8080/m/<%= quiz.quiz_id %>/results</span> <a href="#" class="shareBT">Share this result</a>
       </div>
 
 

@@ -4,26 +4,26 @@
       <h2>Quiz taker's Result</h2>
       <section class="myQuiz">
 
-        <h3 class="quiz_title"><%= quiz.title %></h3>
+        <h3 class="quiz_title">Quiz title: <%= quiz.title %></h3>
 
         <!--display one div of correct & fail-->
 
         <div class="wrapBT">
           <p>Correct answer!</p>
-          <a href="#" id="retakeBT" class="shareBT">Go to take more quizzes</a>
+          <a href="http://localhost:8080/" id="retakeBT" class="shareBT">Go to take more quizzes</a>
         </div>
 
 
         <div class="wrapBT">
           <p>Nope!</p>
-          <a href="#" id="retakeBT" class="shareBT">Retake quiz</a>
+          <a href="/t/<%= quiz.quiz_id %>/" id="retakeBT" class="shareBT">Retake quiz</a>
         </div>
 
-
+<!--
         <div class="wrapBT">
           <a href="#" id="result_detail" class="shareBT">Details Of Quiz Result</a>
         </div>
-<!--
+
         <div class="quiz_result">
 
         <table class="result_table">
@@ -50,7 +50,7 @@
 
       <!--THis link is the taker's result link-->
       <div class="share">
-        <span>Quiz Taker's Results Page URL</span> <a href="#" class="shareBT">Copy Result Link</a>
+        <span>http://localhost:8080/t/<%= quiz.quiz_id %>/results</span> <a href="#" class="shareBT">Copy Result Link</a>
       </div>
 
     </main>

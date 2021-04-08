@@ -152,7 +152,8 @@ textarea {
 }
 
 h3.quiz_title {
-  display: inline-block;
+  text-align: center;
+  margin-top: 1em;
 }
 
 .title_share_option {
@@ -201,9 +202,7 @@ h3.quiz_title {
   text-align: center;
 }
 
-#view_quiz_display {
-  display: none;
-}
+
 
 div.wrapBT {
   width: 100%;
@@ -246,4 +245,8 @@ input#option1, input#option2 {
   padding: 1em;
   margin-bottom: .6em;
   margin-right: 4em;
+}
+
+.total_result {
+  text-align: center;
 }

@@ -62,7 +62,7 @@ module.exports = (db) => {
       .then((data) => {
         const templateVars = { quiz: { ...data.rows[0] } };
         console.log(templateVars);
-        res.render("maker-quiz", templateVars);
+        res.render("maker-result", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
