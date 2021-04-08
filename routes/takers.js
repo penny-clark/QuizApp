@@ -44,7 +44,7 @@ module.exports = (db) => {
     ) // Replace with Query to find info on the quiz with the id in the req.params.id of the page
       // Stretch: shows details on what questions the taker got wrong and the correct answer for those questions
       .then((data) => {
-        const templateVars = { quiz: {...data.rows[0]} };
+        const templateVars = { quiz: { ...data.rows[0] } };
         res.render("taker-result", templateVars); // Replace with ejs name for taker quiz results page
       })
       .catch((err) => {

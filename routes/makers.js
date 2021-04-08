@@ -40,7 +40,7 @@ module.exports = (db) => {
     ) // Replace with Query to find info on the quiz with the id in the req.params.id of the page
       .then((data) => {
         console.log(data.rows);
-        const templateVars = { quiz: {...data.rows[0]} };
+        const templateVars = { quiz: { ...data.rows[0] } };
         res.render("maker-quiz", templateVars); // replace with ejs name for maker quiz page
       })
       .catch((err) => {
@@ -50,10 +50,19 @@ module.exports = (db) => {
 
   maker.get("/:id/results/", (req, res) => {
     const id = req.params.id;
-    db.query("SELECT 1") // Replace with Query to find info on the quiz with the id in the req.params.id of the page
+    db.query(
+      `SELECT attempts.quiz_id as quiz_id, quizzes.title as title, quizzes.creator_name as creator_name, attempts.quiztaker_name as taker_name, count(answers.correct) as score, count(attempts_answers.*) as total, (SELECT count(attempts.*) FROM attempts WHERE attempts.quiz_id = ${id}) as total_attempts
+        FROM answers
+        JOIN attempts_answers ON answers.id = answer_id
+        JOIN attempts ON attempts.id = attempt_id
+      JOIN quizzes ON quizzes.id = attempts.quiz_id
+        WHERE attempts.quiz_id = ${id}
+        GROUP BY attempts.id, quizzes.title, quizzes.creator_name`
+    )
       .then((data) => {
-        const templateVars = { quiz: {...data.rows[0]} };
-        res.render("maker-result", templateVars); // Replace with ejs name for maker quiz results page
+        const templateVars = { quiz: { ...data.rows[0] } };
+        console.log(templateVars);
+        res.render("maker-quiz", templateVars);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });

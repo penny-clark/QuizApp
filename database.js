@@ -4,7 +4,7 @@ const pool = new Pool({
   user: "labber",
   password: "labber",
   host: "localhost",
-  database: "midterm"
+  database: "midterm",
 });
 
 //get most recent public quizzes for the homepage
@@ -16,8 +16,7 @@ const getRecentQuizzes = function() {
   ORDER BY time_created DESC
   LIMIT 10`;
 
-  return pool.query(sql)
-    .then(res => res.rows);
+  return pool.query(sql).then((res) => res.rows);
 };
 
 module.exports = getRecentQuizzes;
