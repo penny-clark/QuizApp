@@ -2,20 +2,19 @@
 
     <main>
 
-      <h3 class="quiz_title">quiz(title)</h3>
-      <span class="title_share_option private">private</span>
+      <h3 class="quiz_title"><%= quiz.title %></h3>
       <p class="question">
-        <span>Q.</span> question(content) What material is Captain America's shield made of?
+        <span>Q.</span> <%= quiz.question %>
       </p>
 
       <form action="" method="POST" id="take-quiz-form">
         <div class="form-inline-wrap">
           <input type="radio" id="possiblea1" name="pick_answer" value="1">
-          <label for="take_quiz_option1">answer1 Vibranium</label>
+          <label for="take_quiz_option1"><%= quiz.answer1 %></label>
         </div>
         <div class="form-inline-wrap">
           <input type="radio" id="possiblea2" name="pick_answer" value="2">
-          <label for="take_quiz_option2">answer2 Galvorn</label>
+          <label for="take_quiz_option2"><%= quiz.answer2 %></label>
         </div>
 
         <div class="form-inline-wrap">

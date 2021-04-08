@@ -6,10 +6,15 @@ const home = express.Router();
 module.exports = db => {
   // Render the home page
   home.get("/", (req, res) => {
-    db.query("SELECT 1") //replace with query sql file for returning the latest quizes from the database
+    db.query(`
+    SELECT title, creator_name, id
+    FROM quizzes
+    WHERE publicly_listed = 'true'
+    ORDER BY time_created DESC
+    LIMIT 10
+    `)
       .then(data => {
-        console.log("This is data: ", data.rows);
-        const templateVars = {rows: data.rows};
+        const templateVars = {quizzes: data.rows};
         res.render("index", templateVars);
       })
       .catch(err => {
@@ -24,13 +29,13 @@ module.exports = db => {
     const body = req.body; //takes in params from the body, search bar submition, and uses that to affect the query made by db.query
     console.log("Body: ", body);
     db.query("SELECT 1")
-      .then(data => {
+      .then((data) => {
         // Render homepage based on the search criterea provided altering the query request
         console.log("This is data: ", data.rows);
-        const templateVars = {rows: data.rows};
+        const templateVars = { rows: data.rows };
         res.render("index", templateVars);
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });

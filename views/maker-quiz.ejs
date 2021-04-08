@@ -6,12 +6,12 @@
       <section class="myQuiz">
 
         <h3 class="quiz_title"><%= quiz.title %></h3>
-        <span class="title_share_option private"><%= quiz.privacy %></span>
+
         <p><%= quiz.question %></p>
         <ol>
           <!--a class will be added on the correct answer-->
-          <li id="option1" class="correct"><%= quiz.answer1 %></li>
-          <li id="option2"><%= quiz.answer2 %></li>
+          <li id="option1" class="correct"><%= quiz.correctanswer %></li>
+          <li id="option2"><%= quiz.wronganswer %></li>
         </ol>
       </section>
       <!--THis link is for takers-->

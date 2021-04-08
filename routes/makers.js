@@ -3,10 +3,10 @@ const express = require("express");
 const maker = express.Router();
 
 // Home page Routes
-module.exports = db => {
+module.exports = (db) => {
   // Render the maker new quiz page
   maker.get("/new/", (req, res) => {
-    res.render("new quiz page"); // replace with ejs name for new quiz page
+    res.render("new-quiz"); // replace with ejs name for new quiz page
   });
 
   // Submit the quiz to database
@@ -25,11 +25,23 @@ module.exports = db => {
 
   maker.get("/:id/", (req, res) => {
     const id = req.params.id;
-    db.query("SELECT 1") // Replace with Query to find info on the quiz with the id in the req.params.id of the page
-      .then(data => {
-        console.log("This is data: ", data.rows);
-        const templateVars = {rows: data.rows};
-        res.render("maker quiz page", templateVars); // replace with ejs name for maker quiz page
+    db.query(
+      `SELECT DISTINCT quizzes.id as quiz_id, quizzes.title as title, quizzes.creator_name as creator_name, questions.question_content as question,
+    (SELECT answers.answer_content FROM answers
+    JOIN questions on question_id = questions.id
+    WHERE questions.quiz_id = ${id} AND answers.correct = 'true') as correctanswer,
+    (SELECT answers.answer_content FROM answers
+    JOIN questions on question_id = questions.id
+    WHERE questions.quiz_id = ${id} AND answers.correct IS NULL) as wronganswer
+    FROM quizzes
+    JOIN questions ON quizzes.id = quiz_id
+    JOIN answers ON questions.id = question_id
+    WHERE quizzes.id = ${id}`
+    ) // Replace with Query to find info on the quiz with the id in the req.params.id of the page
+      .then((data) => {
+        console.log(data.rows);
+        const templateVars = { quiz: {...data.rows[0]} };
+        res.render("maker-quiz", templateVars); // replace with ejs name for maker quiz page
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -39,12 +51,11 @@ module.exports = db => {
   maker.get("/:id/results/", (req, res) => {
     const id = req.params.id;
     db.query("SELECT 1") // Replace with Query to find info on the quiz with the id in the req.params.id of the page
-      .then(data => {
-        console.log("This is data: ", data.rows);
-        const templateVars = {rows: data.rows};
-        res.render("maker quiz results page", templateVars); // Replace with ejs name for maker quiz results page
+      .then((data) => {
+        const templateVars = { quiz: {...data.rows[0]} };
+        res.render("maker-result", templateVars); // Replace with ejs name for maker quiz results page
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
@@ -57,7 +68,7 @@ module.exports = db => {
     db.query("SELECT 1") // Replace with Query to find info on the quiz with the id in the req.params.id of the page and update the info.
       // This includes changing quiz, or making the quiz public or private, or ending submissions for the quiz
       .then(() => {
-        res.redirect(`/${id}/`); // Replace with ejs name for maker quiz results page
+        res.redirect(`/m/${id}/`); // Replace with ejs name for maker quiz page
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -71,7 +82,7 @@ module.exports = db => {
       .then(() => {
         res.redirect("../"); // redirect to home page
       })
-      .catch(err => {
+      .catch((err) => {
         res.status(500).json({ error: err.message });
       });
   });
