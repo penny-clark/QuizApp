@@ -2,44 +2,41 @@
 <main>
 
   <h3>Write Your Quiz</h3>
-  <form action="" method="POST" id="new-quiz-form">
+  <form action="/m/new" method="POST" id="new-quiz-form">
 
     <div class="form-block-wrap">
-      <label for="new-quiz-form__title">Quiz title</label>
-      <input type="text" name="title" placeholder="Quiz title" id="new-quiz-form__title">
+      <label for="title">Quiz title</label>
+      <input type="text" name="title" placeholder="Quiz title" id="title">
     </div>
 
     <div class="form-block-wrap">
-      <label for="new-quiz-form__question">Question</label>
-      <textarea name="question" row="2" placeholder="Write you quiz question here!" id="new-quiz-form__question"></textarea>
+      <label for="question">Question</label>
+      <textarea name="question" row="3" placeholder="Write you quiz question here!" id="question"></textarea>
     </div>
 
     <div class="form-inline-wrap">
-      <p>Please insert options and check what the correct answer is. </p>
-      <label for="new-quiz-form__answer1">1.</label>
-      <input type="text" name="answer1" placeholder="Answer option 1" id="new-quiz-form__answer1">
-      <input type="radio" id="a1" name="correctanswer" value="answer1">
-      <label for="correctanswer">Correct answer</label>
+      <p>Please insert options and click the circle-button on the right side to set up right answer.</p>
+      <label for="answer1">1.</label>
+      <input type="text" name="answer1" placeholder="Answer option 1" id="answer1">
+      <input type="radio" name="correct_answer" value="1" id="option1" >
     </div>
 
     <div class="form-inline-wrap">
-      <label for="new-quiz-form__answer2">2.</label>
-      <input type="text" name="answer2" placeholder="Answer option 2" id="new-quiz-form__answer2">
-      <input type="radio" id="a2" name="correctanswer" value="answer2">
-      <label for="correctanswer">Correct answer</label>
+      <label for="answer2">2.</label>
+      <input type="text" name="answer2" placeholder="Answer option 2" id="answer2">
+      <input type="radio" name="correct_answer" value="2" id="option2">
     </div>
-
 
     <div class="form-inline-wrap">
       <p>Is this quiz public or private?</p>
-      <input type="radio" id="public" name="privacy" value="public">
+      <input type="radio" name="privacy" value="public" id="public">
       <label for="public">Public</label>
-      <input type="radio" id="private" name="privacy" value="private">
+      <input type="radio" name="privacy" value="private" id="private">
       <label for="private">Private</label>
     </div>
 
-    <div class="new-quiz-form__field-wrapper">
-      <button type="submit">Create</button>
+    <div class="BTwrap_right">
+      <button type="submit" class="submitBT">Create</button>
     </div>
 
   </form>
@@ -48,5 +45,5 @@
 </main>
 
 
-  </body>
+</body>
 </html>

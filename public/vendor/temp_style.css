@@ -1,13 +1,16 @@
 *{margin: 0; padding: 0;}
 
-/*Remove underline of a tag */
+/*Remove underlines for all of a tags */
 a {
   text-decoration: none;
 }
 
+/* to control display with jquery */
 .hide {
   display: none;
 }
+
+/* layout CSS */
 
 body {
   background-color: #dbedff;
@@ -17,12 +20,6 @@ body {
   align-items: center;
   font-family: 'Roboto',sans-serif;
   font-weight: 400;
-}
-
-body h1 {
-  color: #fff;
-  text-align: center;
-  font-family: 'Lobster',sans-serif;
 }
 
 header {
@@ -40,6 +37,27 @@ nav {
   justify-content: center;
 }
 
+main {
+  width: 90%;
+  padding-top: 1em;
+  /* border: 1px solid #678bc9; */
+}
+
+/* h, p styling */
+
+h1 {
+  color: #fff;
+  text-align: center;
+  font-family: 'Lobster',sans-serif;
+}
+
+h3 {
+  font-size: 1.3em;
+  padding-bottom: .5em;
+}
+
+/* Buttons */
+
 a.styleBT {
   display: inline-flex;
   padding: .6em 1em;
@@ -49,37 +67,56 @@ a.styleBT {
   border-radius: 1.2em;
 }
 
-main {
-  width: 90%;
-  border: 1px solid red;
+.submitBT {
+  padding: .6em 2em;
+  background-color: #ffd670;
+  font-size: 1.2em;
+  color: #000;
+  border-radius: 1.2em;
+  border: none;
+  cursor:pointer;
 }
 
-/* index */
+.BTwrap_right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.BTwrap_right a, .BTwrap_right input {
+  display: inline-flex;
+}
+
+/* index page */
 
 .public_list {
   padding-top: 1em;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
+  max-width: 800px;
+  display: block;
+  margin: 0 auto;
+
 }
 
 .single_quiz {
-  display: block;
   width: 100%;
   height: auto;
   padding: 1em;
+  margin-bottom: 1em;
   background-color: #fff;
   overflow: visible;
 }
 
-h3 {
-  font-size: 1.3em;
-  padding-bottom: .5em;
+h2 {
+  text-align: center;
+  font-weight: 500;
+  color: #678bc9;
 }
+
+
 
 .single_quiz p {
   padding: .5em 0;
+
 }
 
 /* form */
@@ -200,4 +237,13 @@ div.wrapBT {
 .result_table th, .result_table td{
   background-color: #fff;
   text-align: center;
+}
+
+
+
+input#option1, input#option2 {
+  display: inline-block;
+  padding: 1em;
+  margin-bottom: .6em;
+  margin-right: 4em;
 }
