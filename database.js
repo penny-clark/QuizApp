@@ -146,12 +146,9 @@ const addQuestion = function (newquestion) {
 //not sure if we can do this by returning the newquestion again in the .then
 //or by accessing the question_id field of the previously returned answer
 const addCorrectAnswer = function (correctanswer) {
-  return pool
-    .query(
-      `INSERT INTO answers (question_id, answer_content, correct)
-  VALUES (${newquestion.id}, $1, 'true') RETURNING *;`,
-      [correctanswer.content]
-    )
+  const sql = `INSERT INTO answers (question_id, answer_content, correct)
+  VALUES (${newquestion.id}, $1, 'true') RETURNING *`;
+  return pool.query(sql, [correctanswer.content])
     .then((res) => {
       const correctAnswer = res.rows[0];
       console.log(correctAnswer); //console log for testing
