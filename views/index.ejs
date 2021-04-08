@@ -3,13 +3,19 @@
     <h2>Public quizzes</h2>
     <section class="public_list">
 
-      <!-- article will be posted by query-->
-      <article class="single_quiz publicQ">
-        <h3>Quiz title</h3>
-        <span>Creator: name</span>
-        <p>Quiz question preview text within 90 letters..</p>
-        <a href="#" class="styleBT">Take this quiz</a>
-      </article>
+      <% if (!quizzes) { %>
+        <div style="padding: 1em; margin: 1em; background: #ff0">
+          <h5>There is no public quiz data so far</h5>
+        </div>
+      <% } %>
+
+      <% for (const quiz of quizzes) { %>
+        <article class="single_quiz publicQ">
+          <h3><%= quiz.title %></h3>
+          <span>Creator: <%= quiz.creator_name %></span>
+          <a href="/t/<%= quiz.id %>" class="styleBT">Take this quiz</a>
+        </article>
+      <% } %>
 
     </section>
   </main>
@@ -17,3 +23,5 @@
 
   </body>
 </html>
+
+
