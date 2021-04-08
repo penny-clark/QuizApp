@@ -1,7 +1,7 @@
 const { Pool } = require('pg');
 
 const pool = new Pool({
-  user: 'localhost',
+  user: 'labber',
   password: 'labber',
   host: 'localhost',
   database: 'midterm'
@@ -64,7 +64,7 @@ const getQuizInfoById = function(quiz_id) {
   })
 }
 
-module.exports = getQuizInfoById;
+//module.exports = getQuizInfoById;
 
 //get the score (in points) for a single attempt
 const getAttemptsResults = function(attempt_id) {
@@ -83,7 +83,7 @@ const getAttemptsResults = function(attempt_id) {
   })
 }
 
-module.exports = getAttemptsResults;
+//module.exports = getAttemptsResults;
 
 //get single attempt score as a percentage
 const getAttemptScorePercentage = function(attempt_id) {
@@ -102,7 +102,7 @@ const getAttemptScorePercentage = function(attempt_id) {
   })
 }
 
-module.exports = getAttemptScorePercentage;
+//module.exports = getAttemptScorePercentage;
 
 //get quiz results for all takers of a single quiz
 const getAllResultsForQuiz = function(quiz_id) {
@@ -121,7 +121,7 @@ const getAllResultsForQuiz = function(quiz_id) {
   })
 }
 
-module.exports = getAllResultsForQuiz;
+//module.exports = getAllResultsForQuiz;
 
 //get the average score of all takers for a quiz
 const getQuizTotalAverage = function(quiz_id) {
@@ -141,7 +141,7 @@ const getQuizTotalAverage = function(quiz_id) {
   })
 }
 
-module.exports = getQuizTotalAverage;
+//module.exports = getQuizTotalAverage;
 
 //THESE FOUR FUNCTIONS ARE FOR ADDING A NEW QUIZ
 const addQuiz = function(newquiz) {
@@ -156,7 +156,7 @@ const addQuiz = function(newquiz) {
   })
 }
 
-module.exports = addQuiz;
+//module.exports = addQuiz;
 
 //add a new question to questions database
 const addQuestion = function(newquestion) {
@@ -171,7 +171,7 @@ const addQuestion = function(newquestion) {
   })
 }
 
-module.exports = addQuestion;
+//module.exports = addQuestion;
 
 //add a correct answer to answers database
 
@@ -187,7 +187,7 @@ const addAnswer1 = function(answer) {
   })
 }
 
-module.exports = addAnswer1;
+//module.exports = addAnswer1;
 
 //need to call this one after the first answer is added for chaining so the question id gets chained along throug the previous answer
 const addAnswerSubsequent = function(answer) {
@@ -202,4 +202,17 @@ const addAnswerSubsequent = function(answer) {
   })
 }
 
-module.exports = addAnswerSubsequent;
+
+// module.exports = {
+//   getRecentQuizzes,
+//   getQuizById,
+//   getQuizInfoById,
+//   getAttemptsResults,
+//   getAttemptScorePercentage,
+//   getAllResultsForQuiz,
+//   getQuizTotalAverage,
+//   addQuiz,
+//   addQuestion,
+//   addAnswer1,
+//   addAnswerSubsequent
+// }
