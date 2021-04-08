@@ -2,28 +2,28 @@
 
     <main>
 
-      <h2>Quiz Creator's Page : Name</h2>
+      <h2>Quiz Creator's Page : <%= quiz.creator_name %></h2>
       <section class="myQuiz">
 
-        <h3 class="quiz_title">Quiz title</h3>
-        <span class="title_share_option private">private</span>
-        <p>quiz(question) What material is Captain America's shield made of?</p>
+        <h3 class="quiz_title"><%= quiz.title %></h3>
+        <span class="title_share_option private"><%= quiz.privacy %></span>
+        <p><%= quiz.question %></p>
         <ol>
           <!--a class will be added on the correct answer-->
-          <li id="option1" class="correct">answer1</li>
-          <li id="option2">answer2</li>
+          <li id="option1" class="correct"><%= quiz.answer1 %></li>
+          <li id="option2"><%= quiz.answer2 %></li>
         </ol>
       </section>
       <!--THis link is for takers-->
       <div class="share">
         <p>Share this quiz to your friends!</p>
-        <span>quiz page URL</span> <a href="#" class="shareBT">Copy share link</a>
+        <span>http://localhost:8080/t/<%= quiz.quiz_id %></span> <a href="#" class="shareBT">Copy share link</a>
       </div>
 
       <!--THis link is the maker's result link-->
       <div class="share">
         <p>Keep this link to track the result of your quiz</p>
-        <span>quiz result page URL</span> <a href="#" class="shareBT">Copy result link</a>
+        <span>http://localhost:8080/m/<%= quiz.quiz_id %>/results</span> <a href="#" class="shareBT">Copy result link</a>
       </div>
 
 

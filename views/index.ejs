@@ -1,19 +1,21 @@
 <%- include('header') %>
   <main>
-    <h2>Public quizzes</h2>
+    <h2>Recent public quizzes</h2>
     <section class="public_list">
 
       <% if (!quizzes) { %>
-        <div style="padding: 1em; margin: 1em; background: #ff0">
+        <div>
           <h5>There is no public quiz data so far</h5>
         </div>
       <% } %>
 
       <% for (const quiz of quizzes) { %>
         <article class="single_quiz publicQ">
-          <h3><%= quiz.title %></h3>
-          <span>Creator: <%= quiz.creator_name %></span>
-          <a href="/t/<%= quiz.id %>" class="styleBT">Take this quiz</a>
+          <h3><i class="fas fa-feather"></i> <%= quiz.title %></h3>
+          <span>Creator <i class="fas fa-user-astronaut"></i> <%= quiz.creator_name %></span>
+          <div class="BTwrap_right">
+            <a href="/t/<%= quiz.id %>" class="takeBT styleBT">Take this quiz</a>
+          </div>
         </article>
       <% } %>
 
