@@ -23,6 +23,7 @@ const getRecentQuizzes = function() {
 module.exports = getRecentQuizzes;
 
 //gets the quiz fields based on quiz id
+//(I have this in mind for generating the take quiz page, but it might need some work)
 const getQuizById = function(quiz_id) {
   const sql = `
   SELECT quizzes.title as quiz_name, questions.question_content as question, answers.answer_content
@@ -39,6 +40,31 @@ const getQuizById = function(quiz_id) {
 }
 
 module.exports = getQuizById;
+
+//this generates an overview of a quiz for the maker results page
+//not sure if it will work to replace all three $1 with the param, but we'll try it and see if it breaks
+const getQuizInfoById = function(quiz_id) {
+  const sql = `
+  SELECT DISTINCT quizzes.title as quiz_name, questions.question_content as question,
+  (SELECT answers.answer_content FROM answers
+  JOIN questions on question_id = questions.id
+  WHERE questions.quiz_id = $1 AND answers.correct = 'true') as correctanswer,
+  (SELECT answers.answer_content FROM answers
+  JOIN questions on question_id = questions.id
+  WHERE questions.quiz_id = $1 AND answers.correct IS NULL) as wronganswer
+  FROM quizzes
+  JOIN questions ON quizzes.id = quiz_id
+  JOIN answers ON questions.id = question_id
+  WHERE quizzes.id = $1;`;
+
+  return pool.query(sql, [quiz_id])
+  .then(res => {
+    const quiz = res.rows || null;
+    return quiz;
+  })
+}
+
+module.exports = getQuizInfoById;
 
 //get the score (in points) for a single attempt
 const getAttemptsResults = function(attempt_id) {
