@@ -23,21 +23,23 @@ const getRecentQuizzes = function() {
 module.exports = getRecentQuizzes;
 
 //gets the quiz fields based on quiz id
-//(I have this in mind for generating the take quiz page, but it might need some work to fit with the front end)
+//Right now answer 1 will always be the right answer, but I don't really have time to fix today!
 const getQuizById = function(quiz_id) {
   const sql = `
-  SELECT quizzes.title as quiz_name, questions.question_content as question, answers.answer_content
+  SELECT DISTINCT quizzes.id as quiz_id, quizzes.title, quizzes.creator_name, questions.question_content as question, (SELECT answers.answer_content FROM answers
+    JOIN questions on question_id = questions.id
+    WHERE questions.quiz_id = $1 AND answers.correct = 'true') as answer1,
+    (SELECT answers.answer_content FROM answers
+    JOIN questions on question_id = questions.id
+    WHERE questions.quiz_id = $1 AND answers.correct IS NULL) as answer2
+    FROM quizzes
+    JOIN questions ON quizzes.id = quiz_id
+    JOIN answers ON questions.id = question_id
+    WHERE quizzes.id = $1;
   FROM quizzes
   JOIN questions ON quizzes.id = quiz_id
   JOIN answers ON questions.id = question_id
   WHERE quizzes.id = $1`;
-
-  return pool.query(sql, [quiz_id])
-  .then(res => {
-    const quiz = res.rows || null;
-    return quiz;
-  })
-}
 
 module.exports = getQuizById;
 
