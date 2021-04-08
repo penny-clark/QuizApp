@@ -3,5 +3,5 @@ CREATE TABLE answers (
   id SERIAL PRIMARY KEY,
   question_id INTEGER NOT NULL REFERENCES questions(id) ON DELETE CASCADE,
   answer_content TEXT NOT NULL,
-  correct VARCHAR(10)
+  correct VARCHAR(10) DEFAULT NULL
 );
