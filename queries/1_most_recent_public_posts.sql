@@ -1,5 +1,5 @@
 -- Render the home page with most recent quizzes
-SELECT id, title
+SELECT title, creator_name, id
 FROM quizzes
 WHERE publicly_listed = 'true'
 ORDER BY time_created DESC
