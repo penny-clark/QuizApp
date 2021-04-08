@@ -23,7 +23,7 @@ const getRecentQuizzes = function() {
 module.exports = getRecentQuizzes;
 
 //gets the quiz fields based on quiz id
-//(I have this in mind for generating the take quiz page, but it might need some work)
+//(I have this in mind for generating the take quiz page, but it might need some work to fit with the front end)
 const getQuizById = function(quiz_id) {
   const sql = `
   SELECT quizzes.title as quiz_name, questions.question_content as question, answers.answer_content
@@ -161,7 +161,7 @@ module.exports = addQuiz;
 //add a new question to questions database
 const addQuestion = function(newquestion) {
   const sql = `INSERT INTO questions (quiz_id, question_content)
-  VALUES (${newquiz.id}, $1,) RETURNING *`
+  VALUES (${newquiz.id}, $1,) RETURNING *`;
 
   return pool.query(sql, [newquestion.content])
   .then((res) => {
@@ -175,29 +175,29 @@ module.exports = addQuestion;
 
 //add a correct answer to answers database
 
-const addAnswer1 = function(correctanswer) {
+const addAnswer1 = function(answer) {
   const sql = `INSERT INTO answers (question_id, answer_content, correct)
-  VALUES (${newquestion.id}, $1, $2) RETURNING *`
+  VALUES (${newquestion.id}, $1, $2) RETURNING *`;
 
   return pool.query(sql, [answer.content, answer.correct])
   .then((res) => {
     const answer = res.rows[0];
-    console.log(correctAnswer); //console log for testing
+    console.log(answer); //console log for testing
     return answer;
   })
 }
 
 module.exports = addAnswer1;
 
-//need to call this one after the first answer is added for chaining purposes
-const addAnswerSubsequent = function(correctanswer) {
+//need to call this one after the first answer is added for chaining so the question id gets chained along throug the previous answer
+const addAnswerSubsequent = function(answer) {
   const sql = `INSERT INTO answers (question_id, answer_content, correct)
-  VALUES (${newquestion.id}, $1, $2) RETURNING *`
+  VALUES (${answer.question_id}, $1, $2) RETURNING *`;
 
   return pool.query(sql, [answer.content, answer.correct])
   .then((res) => {
     const answer = res.rows[0];
-    console.log(correctAnswer); //console log for testing
+    console.log(answer); //console log for testing
     return answer;
   })
 }
