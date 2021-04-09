@@ -3,9 +3,8 @@ EJS Views/Front-end: Noah
 SQL Database/Back-end: Penny
 Express Routes/Back-end: Violet
 ## Overview
-An app that lets you create quizzes and share them between friends. The creator of the quiz can view and share all the results at the end of the quiz.
-
-
+An app that lets you create quizzes and share them between friends.
+The creator of the quiz can view and share all the results at the end of the quiz.
 
 ## For
 Lighthouse Labs Midterm Project
@@ -13,6 +12,9 @@ West Coast March Cohort 2021
 Full-Stack Developer Bootcamp
 
 ## Screenshots
+!["Screenshot of QuizApp Home Page"](https://raw.githubusercontent.com/penny-clark/QuizApp/master/doc/screenshot_1_home.png)
+!["Screenshot of QuizApp New Quiz Form"](https://raw.githubusercontent.com/penny-clark/QuizApp/master/doc/screenshot_2_newQuiz.png)
+!["Screenshot of QuizApp ERD"](https://cdn.discordapp.com/attachments/827624262129942548/829892741990842418/quizapp_erd.png)
 
 ## Getting Started
 1. Install dependencies: `npm i`
